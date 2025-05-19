@@ -24,10 +24,16 @@ class MovieFactory extends Factory
             'title' => $title,
             'slug' => $slug,
             'synopsis' => fake()->paragraph(rand(5, 10)),
-            'category_id' => Category::inRandomOrder()->first(),
+            'category_id' => Category::inRandomOrder()->first()->id,
             'year' => fake()->year(),
             'actors' => fake()->name(),
-            'cover_image' => 'https://piscum.photos/seed/' . Str::random(10) . '/480/640',
+            'cover_image' => 'covers/' . fake()->randomElement([
+                    'interstellar.jpg',
+                    'notebook.jpg',
+                    'avengers.jpg',
+                    'hangover.jpg',
+                    'escape.jpg',
+                ]),
             'created_at' => now(),
             'updated_at' => now()
 

@@ -12,15 +12,18 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
-    {
-        // User::factory(10)->create();
+            public function run(): void
+        {
+            $this->call([
+                CategorySeeder::class,
+            ]);
 
-        Movie::factory(10)->create();
+            // Pastikan minimal 5 kategori sudah ada dulu
+            Movie::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-    }
+            User::factory()->create([
+                'name' => 'Test User',
+                'email' => 'test@example.com',
+            ]);
+}
 }
