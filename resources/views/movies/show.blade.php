@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="mt-3">
-                    <a href="{{ route('movies.index') }}" class="text-blue-600 hover:underline">← Kembali ke daftar film</a>
+                    <a href="{{ route('movies.index') }}" class="text-blue-600 hover:underline">← Kembali ke Daftar Film</a>
                 </div>
             </div>
         </div>
