@@ -40,9 +40,14 @@
         </div>
 
         <div class="mb-3">
+            <label for="cover_image" class="form-label">URL Gambar Cover</label>
+            <input type="text" name="cover_image" class="form-control" required>
+        </div>
+
+        {{-- <div class="mb-3">
             <label>Cover Image</label>
             <input type="file" name="cover_image" class="form-control">
-        </div>
+        </div> --}}
 
         <button class="btn btn-success">Simpan</button>
         <a href="{{ route('movies.index') }}" class="btn btn-secondary">Kembali</a>

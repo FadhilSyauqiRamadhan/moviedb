@@ -21,10 +21,16 @@ class MovieController extends Controller
         $query->where('category_id', $request->category);
     }
 
-    $movies = $query->paginate(9)->withQueryString();
+    $movies = $query->paginate(6)->withQueryString();
 
     return view('movies.index', compact('movies'));
 }
+
+    public function show(Movie $movie)
+    {
+        return view('movies.show', compact('movie'));
+    }
+
 
     public function create()
     {
@@ -40,7 +46,7 @@ class MovieController extends Controller
             'year' => 'required|digits:4|integer',
             'synopsis' => 'nullable',
             'actors' => 'nullable',
-            'cover_image' => 'nullable|image',
+            'cover_image' => 'nullable|url',
         ]);
 
         $validated['slug'] = Str::slug($request->title);

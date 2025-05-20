@@ -21,9 +21,9 @@ class DatabaseSeeder extends Seeder
             // Pastikan minimal 5 kategori sudah ada dulu
             Movie::factory(10)->create();
 
-            User::factory()->create([
-                'name' => 'Test User',
-                'email' => 'test@example.com',
-            ]);
-}
+//             User::factory()->create([
+//                 'name' => 'Test User',
+//                 'email' => 'test@example.com',
+//             ]);
+     }
 }

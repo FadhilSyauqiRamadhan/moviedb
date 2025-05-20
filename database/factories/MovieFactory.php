@@ -27,16 +27,19 @@ class MovieFactory extends Factory
             'category_id' => Category::inRandomOrder()->first()->id,
             'year' => fake()->year(),
             'actors' => fake()->name(),
-            'cover_image' => 'covers/' . fake()->randomElement([
-                    'interstellar.jpg',
-                    'notebook.jpg',
-                    'avengers.jpg',
-                    'hangover.jpg',
-                    'escape.jpg',
-                ]),
+            'cover_image' => 'https://picsum.photos/seed/' . Str::random(10) . '/480/640',
             'created_at' => now(),
             'updated_at' => now()
 
         ];
     }
 }
+
+
+// 'cover_image' => 'covers/' . fake()->randomElement([
+//                     'interstellar.jpg',
+//                     'notebook.jpg',
+//                     'avengers.jpg',
+//                     'hangover.jpg',
+//                     'escape.jpg',
+//                 ]),
