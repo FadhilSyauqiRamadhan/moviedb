@@ -26,10 +26,10 @@
                 </div>
 
                 <div class="mt-6 d-flex justify-content-between">
-                    <a href="{{ route('movies.edit', $movie->id) }}" class="btn btn-warning">
+                    <a href="{{ route('movies.edit', $movie->slug) }}" class="btn btn-warning">
                         <i class="bi bi-pencil-square"></i> Edit
                     </a>
-                    <form action="{{ route('movies.destroy', $movie->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus film ini?')">
+                    <form action="{{ route('movies.destroy', $movie->slug) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus film ini?')">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">

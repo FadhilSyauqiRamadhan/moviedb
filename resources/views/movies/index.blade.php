@@ -58,7 +58,7 @@
                             <strong>Actors:</strong> {{ $movie->actors ?? '-' }}<br>
                             <strong>Sinopsis:<br></strong> {{ Str::limit($movie->synopsis, 100, '...') }}
                             <div class="text-end mt-2">
-                                <a href="{{ route('movies.show', $movie->id) }}" class="btn btn-sm btn-success ms-2">
+                                <a href="{{ route('movies.show', $movie->slug) }}" class="btn btn-sm btn-success ms-2">
                                     <i class="bi bi-eye"></i> Read More
                                 </a>
                             </div>

@@ -25,4 +25,12 @@ class Movie extends Model
             'actors',
             'cover_image',
         ];
+
+        public function getRouteKeyName()
+            {
+                return 'slug';
+            }
 }
+
+
+

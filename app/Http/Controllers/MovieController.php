@@ -42,14 +42,16 @@ class MovieController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required',
-            'category_id' => 'required',
-            'year' => 'required|digits:4|integer',
-            'synopsis' => 'nullable',
-            'actors' => 'nullable',
-            'cover_image' => 'nullable|url',
+            'category_id' => 'required|exists:categories,id',
+            // 'year' => 'required|digits:4|integer',
+            'year' => 'required|integer|min:1980|max:' . date('Y'),
+            'synopsis' => 'nullable|string',
+            'actors' => 'required|string',
+            'cover_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         $validated['slug'] = Str::slug($request->title);
+
         if ($request->hasFile('cover_image')) {
             $validated['cover_image'] = $request->file('cover_image')->store('covers', 'public');
         }
@@ -58,6 +60,8 @@ class MovieController extends Controller
 
         return redirect()->route('movies.index')->with('success', 'Movie created successfully.');
     }
+
+    
 
     public function edit(Movie $movie)
     {

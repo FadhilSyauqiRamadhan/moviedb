@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('layouts.main');
 });
 
-Route::resource('movies', MovieController::class);
+Route::resource('movies', MovieController::class)->parameters(['movies' => 'movie']);
