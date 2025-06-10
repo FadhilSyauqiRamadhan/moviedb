@@ -25,7 +25,7 @@
                     <p class="text-gray-700 leading-relaxed">{{ $movie->synopsis }}</p>
                 </div>
 
-                <div class="mt-6 d-flex justify-content-between">
+                {{-- <div class="mt-6 d-flex justify-content-between">
                     <a href="{{ route('movies.edit', $movie->slug) }}" class="btn btn-warning">
                         <i class="bi bi-pencil-square"></i> Edit
                     </a>
@@ -36,7 +36,7 @@
                             <i class="bi bi-trash"></i> Hapus
                         </button>
                     </form>
-                </div>
+                </div> --}}
 
                 <div class="mt-3">
                     <a href="{{ route('movies.index') }}" class="text-blue-600 hover:underline">← Kembali ke Daftar Film</a>

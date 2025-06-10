@@ -14,12 +14,13 @@ class DatabaseSeeder extends Seeder
      */
             public function run(): void
         {
-            $this->call([
-                CategorySeeder::class,
-            ]);
+            // $this->call([
+            //     CategorySeeder::class,
+            // ]);
 
             // Pastikan minimal 5 kategori sudah ada dulu
-            Movie::factory(10)->create();
+            // Movie::factory(3)->create();
+            User::factory(3)->create();
 
 //             User::factory()->create([
 //                 'name' => 'Test User',

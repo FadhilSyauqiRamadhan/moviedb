@@ -111,6 +111,25 @@
         <span>🎥</span>
         <span>Bioskop Politeknik Negeri Padang</span>
       </a>
+
+      {{-- filepath: resources/views/layouts/main.blade.php --}}
+<div class="d-flex align-items-center gap-3">
+  <a href="{{ route('movies.datamovie') }}" class="btn btn-warning btn-sm">
+    <i class="bi bi-plus-circle"></i> Input Data
+  </a>
+  @if(Auth::check())
+    <span class="text-white fw-bold">
+      <i class="bi bi-person-circle"></i> {{ Auth::user()->name }}
+    </span>
+    <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+      @csrf
+      <button type="submit" class="btn btn-danger btn-sm">Logout</button>
+    </form>
+  @else
+    <a href="{{ route('login') }}" class="btn btn-light btn-sm">Login</a>
+  @endif
+</div>
+
       <button class="navbar-toggler border-2 border-white rounded-md p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
               aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon bg-white rounded"></span>
@@ -140,6 +159,7 @@
   </div>
 </footer>
 
+
 <!-- Script untuk Tahun Otomatis -->
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
@@ -150,3 +170,6 @@
 
     </body>
 </html>
+
+
+

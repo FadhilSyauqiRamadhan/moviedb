@@ -35,7 +35,14 @@ class MovieController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('movies.create', compact('categories'));
+        $movies = Movie::with('category')->latest()->get();
+        return view('movies.create', compact('categories', 'movies'));
+    }
+
+    public function datamovie()
+    {
+        $movies = Movie::with('category')->latest()->get();
+        return view('movies.datamovie', compact('movies'));
     }
 
     public function store(Request $request)
@@ -61,7 +68,7 @@ class MovieController extends Controller
         return redirect()->route('movies.index')->with('success', 'Movie created successfully.');
     }
 
-    
+
 
     public function edit(Movie $movie)
     {
@@ -87,12 +94,13 @@ class MovieController extends Controller
 
         $movie->update($validated);
 
-        return redirect()->route('movies.index')->with('success', 'Movie updated successfully.');
+        return redirect()->route('movies.datamovie')->with('success', 'Movie updated successfully.');
     }
 
     public function destroy(Movie $movie)
     {
         $movie->delete();
-        return redirect()->route('movies.index')->with('success', 'Movie deleted successfully.');
+        
+        return redirect()->route('movies.datamovie')->with('success', 'Movie deleted successfully.');
     }
 }
